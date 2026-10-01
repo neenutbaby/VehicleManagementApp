@@ -1,0 +1,57 @@
+@using VehicleManagement.Web.Services
+@model IReadOnlyList<VehicleList>
+@{
+    ViewData["Title"] = "Vehicles";
+    var sort = (string?)ViewBag.Sort ?? "owner";
+    var direction = (string?)ViewBag.Direction ?? "asc";
+}
+
+<div class="page-header">
+    <div>
+        <h1>Vehicles</h1>
+    </div>
+    <a class="button primary" asp-action="Create">Add vehicle</a>
+</div>
+<div class="card">
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th><a asp-route-sort="owner" asp-route-direction="@(sort == "owner" && direction == "asc" ? "desc" : "asc")">Owner ↕</a></th>
+                    <th><a asp-route-sort="manufacturer" asp-route-direction="@(sort == "manufacturer" && direction == "asc" ? "desc" : "asc")">Manufacturer ↕</a></th>
+                    <th><a asp-route-sort="year" asp-route-direction="@(sort == "year" && direction == "asc" ? "desc" : "asc")">Year ↕</a></th>
+                    <th><a asp-route-sort="weight" asp-route-direction="@(sort == "weight" && direction == "asc" ? "desc" : "asc")">Weight ↕</a></th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Count == 0)
+                {
+                    <tr><td colspan="5" class="empty">Vehicle list is empty. Click "Add vehicle" to create one.</td></tr>
+                }
+                else
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(model => item.OwnerName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.Manufacturer)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.YearOfManufacture)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.WeightKg)
+                            </td>
+                            <td><span class="category-pill"><span class="icon">@item.CategoryIcon</span> @item.CategoryName</span></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<p class="muted small">Sorted by: <strong>@sort</strong> (@direction)</p>

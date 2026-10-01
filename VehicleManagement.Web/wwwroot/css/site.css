@@ -1,0 +1,286 @@
+:root {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #172033;
+    background: #f5f7fb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.container {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+.topbar {
+    background: #101828;
+    color: white;
+}
+
+.nav {
+    min-height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+nav {
+    display: flex;
+    gap: 18px;
+}
+
+    nav a {
+        color: #d0d5dd;
+        text-decoration: none;
+        font-size: .95rem;
+    }
+
+        nav a:hover {
+            color: white;
+        }
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 24px;
+    margin: 42px 0 24px;
+}
+
+h1 {
+    margin: .15rem 0 .35rem;
+    font-size: 2.1rem;
+    letter-spacing: -.03em;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-size: .72rem;
+    font-weight: 800;
+    margin: 0;
+    color: #667085;
+}
+
+.muted {
+    color: #667085;
+}
+
+.small {
+    font-size: .86rem;
+}
+
+.card {
+    background: white;
+    border: 1px solid #e4e7ec;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(16,24,40,.05);
+    overflow: hidden;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 16px 18px;
+    border-bottom: 1px solid #eaecf0;
+    text-align: left;
+    white-space: nowrap;
+}
+
+th {
+    background: #f9fafb;
+    color: #475467;
+    font-size: .84rem;
+}
+
+    th a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+tbody tr:hover {
+    background: #fafbfc;
+}
+
+.empty {
+    text-align: center;
+    padding: 48px;
+    color: #667085;
+}
+
+.category-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 10px;
+    background: #f2f4f7;
+    border-radius: 999px;
+}
+
+.icon {
+    font-size: 1.15rem;
+}
+
+.big-icon {
+    font-size: 1.5rem;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d0d5dd;
+    background: white;
+    color: #344054;
+    border-radius: 8px;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: .9rem;
+}
+
+    .button:hover {
+        background: #f9fafb;
+    }
+
+    .button.primary {
+        background: #175cd3;
+        border-color: #175cd3;
+        color: white;
+    }
+
+    .button.danger {
+        color: #b42318;
+        border-color: #fecdca;
+        background: #fff;
+    }
+
+.small-button {
+    padding: 7px 10px;
+}
+
+.actions {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+}
+
+form {
+    margin: 0;
+}
+
+.form-card {
+    max-width: 650px;
+    padding: 28px;
+}
+
+label {
+    display: block;
+    margin: 18px 0 7px;
+    font-weight: 700;
+    color: #344054;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    font: inherit;
+    background: white;
+}
+
+    input:focus, select:focus {
+        outline: 3px solid #d1e0ff;
+        border-color: #84adff;
+    }
+
+.hint {
+    font-size: .85rem;
+    color: #667085;
+    margin-top: 6px;
+}
+
+.alert {
+    border-radius: 10px;
+    padding: 12px 15px;
+    margin: 22px 0;
+    border: 1px solid;
+}
+
+    .alert.success {
+        background: #ecfdf3;
+        color: #027a48;
+        border-color: #abefc6;
+    }
+
+    .alert.error {
+        background: #fef3f2;
+        color: #b42318;
+        border-color: #fecdca;
+    }
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.info {
+    background: white;
+    border: 1px solid #e4e7ec;
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.footer {
+    padding: 40px 0;
+    color: #98a2b3;
+    font-size: .85rem;
+}
+
+@media (max-width:700px) {
+    .nav, .page-header {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+    }
+
+    nav {
+        flex-wrap: wrap;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+}

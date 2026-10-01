@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="VehicleManagement.Tests/VehicleManagement.Tests.csproj" Id="1f446272-0eba-4cf9-ac9f-b8d3dd9e20e9" />
+  <Project Path="VehicleManagement.Web/VehicleManagement.Web.csproj" />
+</Solution>

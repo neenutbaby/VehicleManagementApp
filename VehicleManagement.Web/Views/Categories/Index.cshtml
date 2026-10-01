@@ -1,0 +1,59 @@
+@model IEnumerable<VehicleManagement.Web.Models.VehicleCategoryModel>
+
+@{
+    ViewData["Title"] = "Categories";
+}
+<div class="page-header">
+    <div>
+        <h1>Vehicle Categories</h1>
+    </div>
+    <a asp-action="Create" class="button primary">Create New Category</a>
+</div>
+<div class="card">
+    <div class="table-wrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                         @Html.DisplayNameFor(model => model.MinWeightKg)
+                    </th>
+                    <th>
+                         @Html.DisplayNameFor(model => model.MaxWeightKg)
+                    </th>
+                    <th>
+                         @Html.DisplayNameFor(model => model.Icon)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.MinWeightKg) kg
+                    </td>
+                    <td>
+                        @(item.MaxWeightKg.HasValue ? item.MaxWeightKg.Value.ToString("0.##") + " kg" : "∞")
+                    </td>
+                    <td class="big-icon">
+                        @Html.DisplayFor(model => item.Icon)
+                    </td>
+                    <td class="actions">
+                        <a class="button small-button" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                        <form asp-action="Delete" asp-route-id="@item.Id" method="post" onsubmit="return confirm('Delete this category? The remaining ranges must still cover all weights.');">
+                            @Html.AntiForgeryToken()
+                            <button class="button danger small-button" type="submit">Delete</button>
+                        </form>
+                    </td>
+               </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
